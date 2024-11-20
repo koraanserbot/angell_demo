@@ -122,28 +122,54 @@
 
     <!-- Video Modal Start -->
     <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Legal and Marketing Intersection</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 16:9 aspect ratio -->
+                <div class="ratio ratio-16x9">
+                    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/P1xz-ySMsXU?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Legal and Marketing Intersection</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                   <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body">
                     <!-- 16:9 aspect ratio -->
                     <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" id="video" allowfullscreen allowscriptaccess="always"
-                            allow="autoplay" type="video/mp4"></iframe>
-                        <video controls id="video1">
-            Your browser doesn't support HTML5 video tag.
-          </video>
-                           <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/P1xz-ySMsXU?si=q7PFNoXN_CEPxatU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                     <!--   <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe> -->
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/P1xz-ySMsXU?si=q7PFNoXN_CEPxatU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+   
+<!-- JavaScript to Pause the Video when Modal Closes -->
+<script>
+    const videoModal = document.getElementById('videoModal');
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('video');
+    }
+    videoModal.addEventListener('hide.bs.modal', function () {
+        if (player) {
+            player.pauseVideo();
+        }
+    });
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
     <!-- Video Modal End -->
 
 
